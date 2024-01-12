@@ -1,0 +1,16 @@
+name: setup-beam-test
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  beam-action-test:
+    runs-on: ubuntu-20.04-ppc64le
+    steps:
+      - uses: actions/checkout@v4
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: '22.2'
+      - run: |
+          erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
