@@ -7,6 +7,8 @@ on:
 jobs:
   beam-action-test:
     runs-on: ubuntu-20.04-ppc64le
+    env:
+      ImageOS: ubuntu20
     steps:
       - uses: actions/checkout@v4
       - uses: erlef/setup-beam@v1
